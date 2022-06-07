@@ -10,3 +10,6 @@ heroku container:login
 heroku create <heroku_app_name>
 heroku container:push web --app <heroku_app_name>
 heroku container:release web --app <heroku_app_name>
+
+
+Working sample available on http://adafre-rest.herokuapp.com/swagger/
