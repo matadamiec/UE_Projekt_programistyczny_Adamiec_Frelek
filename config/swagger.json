@@ -1,0 +1,476 @@
+{
+  "info": {
+    "description": "",
+    "version": "1.0.0",
+    "title": "Projekt Programistyczny - Swagger",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "swagger": "2.0",
+  "paths": {
+    "/getVehicles": {
+      "get": {
+        "tags": [
+          "Get Vehicles"
+        ],
+        "summary": "Returns all vehicles in database",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/findVehicle": {
+      "put": {
+        "tags": [
+          "Find Vehicle"
+        ],
+        "summary": "Search for the vehicle by vin number",
+        "parameters": [
+        {
+          "in": "body",
+          "name": "vin",
+          "description": "Vehicle VIN",
+          "required": true,
+          "schema": {
+              "type":"object",
+              "properties": {
+                "vin": {
+                  "type": "string",
+                  "example": "ZF033573"
+                }
+              }
+            }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/addVehicle": {
+      "put": {
+        "tags": ["Add Vehicle"],
+        "summary": "Add new vehicle",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Vehicle data",
+            "description": "Vehicle data",
+            "schema": {
+              "type":"object",
+              "properties": {
+                "make": {
+                  "type": "string",
+                  "example": "BMW"
+                },
+                "model": {
+                  "type": "string",
+                  "example": "Seria 7"
+                },
+                "model_code": {
+                  "type": "string",
+                  "example": "E38"
+                },
+                "production_years": {
+                  "type": "string",
+                  "example": "1995-2001"
+                },
+                "vin_const": {
+                  "type": "string",
+                  "example": "ZF033573"
+                },
+                "engine": {
+                  "type": "string",
+                  "example": "M62 4,4"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "BMW Seria 7, nazwak kodowa E38, silnik M62"
+                }
+              }
+            }
+          }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/deleteVehicle": {
+      "put": {
+        "tags": [
+          "Delete Vehicle"
+        ],
+        "summary": "Delete vehicle by vin number",
+        "parameters": [
+        {
+          "in": "body",
+          "name": "vin",
+          "description": "Vehicle VIN",
+          "required": true,
+          "schema": {
+              "type":"object",
+              "properties": {
+                "vin": {
+                  "type": "string",
+                  "example": "ZF033573"
+                }
+              }
+            }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/updateVehicleParameter": {
+      "put": {
+        "tags": ["Update Vehicle Data"],
+        "summary": "Update Vehicle Data",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Parameters to update",
+            "description": "Parameters to update",
+            "schema": {
+              "type":"object",
+              "properties": {
+                "vin": {
+                  "type": "string",
+                  "example": "ZF033573"
+                },
+                "param_name": {
+                  "type": "string",
+                  "example": "description"
+                },
+                "param_value": {
+                  "type": "string",
+                  "example": "BMW Seria 7, nazwak kodowa E38, silnik M62TUB44"
+                }
+              }
+            }
+          }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/getParts": {
+      "get": {
+        "tags": [
+          "Get Parts"
+        ],
+        "summary": "Returns all parts in database",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/findPart": {
+      "put": {
+        "tags": [
+          "Find Part"
+        ],
+        "summary": "Search for the parts by serial number",
+        "parameters": [
+        {
+          "in": "body",
+          "name": "sn",
+          "description": "Part serial number",
+          "required": true,
+          "schema": {
+              "type":"object",
+              "properties": {
+                "sn": {
+                  "type": "string",
+                  "example": "64F8X"
+                }
+              }
+            }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/addPart": {
+      "put": {
+        "tags": ["Add Part"],
+        "summary": "Add new part",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Part data",
+            "description": "Part data",
+            "schema": {
+              "type":"object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Czujnik położenia wałka rozrządu"
+                },
+                "sn": {
+                  "type": "string",
+                  "example": "0102P"
+                },
+                "producer": {
+                  "type": "string",
+                  "example": "FEBI"
+                },
+                "price": {
+                  "type": "string",
+                  "example": "259,30"
+                },
+                "availability": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "order_wait_days": {
+                  "type": "string",
+                  "example": "5"
+                }
+              }
+            }
+          }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/updatePartParameter": {
+      "put": {
+        "tags": ["Update Part Data"],
+        "summary": "Update Part Data",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Parameters to update",
+            "description": "Parameters to update",
+            "schema": {
+              "type":"object",
+              "properties": {
+                "sn": {
+                  "type": "string",
+                  "example": "HAHGD"
+                },
+                "param_name": {
+                  "type": "string",
+                  "example": "price"
+                },
+                "param_value": {
+                  "type": "string",
+                  "example": "999.55"
+                }
+              }
+            }
+          }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/deletePart": {
+      "put": {
+        "tags": [
+          "Delete Part"
+        ],
+        "summary": "Delete part by serial number",
+        "parameters": [
+        {
+          "in": "body",
+          "name": "sn",
+          "description": "Part serial number",
+          "required": true,
+          "schema": {
+              "type":"object",
+              "properties": {
+                "sn": {
+                  "type": "string",
+                  "example": "INM62B44"
+                }
+              }
+            }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/getPartsMap": {
+      "get": {
+        "tags": [
+          "Get parts map to cars"
+        ],
+        "summary": "Returns all part-car map",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/getPartsForVin": {
+      "put": {
+        "tags": [
+          "Find parts for vin"
+        ],
+        "summary": "Search for parts matched to vin",
+        "parameters": [
+        {
+          "in": "body",
+          "name": "vin",
+          "description": "Vehicle VIN",
+          "required": true,
+          "schema": {
+              "type":"object",
+              "properties": {
+                "vin": {
+                  "type": "string",
+                  "example": "KL4VM"
+                }
+              }
+            }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/createOrder": {
+      "put": {
+        "tags": ["Create Order"],
+        "summary": "Create new order",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Order data",
+            "description": "Order data",
+            "schema": {
+              "type":"object",
+              "properties": {
+                "vin": {
+                  "type": "string",
+                  "example": "C3143623"
+                },
+                "parts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sn": {
+                        "type": "string",
+                        "example": "LUU3G"
+                      },
+                      "qt": {
+                        "type": "string",
+                        "example": "2"
+                      }
+                    }
+                  },
+                  "minItems": 1
+                }
+              }
+            }
+          }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    },
+    "/scanVehicleCard": {
+      "put": {
+        "tags": [
+          "Scan Vehicle Card"
+        ],
+        "summary": "Scan Vehicle Card",
+        "parameters": [
+        {
+          "in": "body",
+          "name": "vehicle_card_url",
+          "description": "Url to scanned vehicle card",
+          "required": true,
+          "schema": {
+              "type":"object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "example": "https://i.ibb.co/km1K8Yh/dowod-rej.jpg"
+                }
+              }
+            }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Error during processing request"
+          }
+        }
+      }
+    }
+  }
+}
